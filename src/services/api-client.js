@@ -1,9 +1,10 @@
 import axios from "axios";
-import { API_CONFIG } from "../config"; // object contain my baseURL
+// I did not use it now cause it create bug with vercel after deploy
+// import { API_CONFIG } from "../config"; // object contain my baseURL
 
 // take instance from axios and modify its configurations
 export const apiClient = axios.create({
-  baseURL: API_CONFIG.baseURL,
+  baseURL: "https://ecommerce.routemisr.com/api/v1",
   timeout: 30000,
 });
 
