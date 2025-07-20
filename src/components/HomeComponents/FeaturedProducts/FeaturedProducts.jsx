@@ -5,7 +5,7 @@ import useProducts from "../../../hooks/useProducts";
 export default function FeaturedProducts() {
   const { products, isLoading, isError, error } = useProducts();
 
-  if (isLoading) {
+  if (isLoading || !products) {
     return <Loading />;
   }
 
@@ -19,9 +19,8 @@ export default function FeaturedProducts() {
         <div className="container">
           <h3 className="text-2xl font-semibold mb-6">Featured Products:</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-            {products.map((product) => (
-              <ProductCard key={product.id} productInfo={product} />
-            ))}
+            {Array.isArray(products) &&
+              products.map((product) => <ProductCard key={product.id} productInfo={product} />)}
           </div>
         </div>
       </section>

@@ -9,9 +9,10 @@ import useProducts from "../../../hooks/useProducts";
 export default function HomeDeals() {
   const { products, isLoading, isError, error } = useProducts();
 
-  if (isLoading) {
+  if (isLoading || !products) {
     return <Loading />;
   }
+
   if (isError) {
     console.log(error);
   }
@@ -46,9 +47,8 @@ export default function HomeDeals() {
 
           {/* Cards */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-3 pt-8">
-            {deals.map((deal) => (
-              <ProductCard key={deal.id} productInfo={deal} />
-            ))}
+            {Array.isArray(deals) &&
+              deals.map((deal) => <ProductCard key={deal.id} productInfo={deal} />)}
           </div>
         </div>
       </section>

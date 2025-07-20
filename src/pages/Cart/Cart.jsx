@@ -34,6 +34,7 @@ export default function Cart() {
             {/* body */}
             <div className="p-4 flex flex-col gap-4">
               {products.length > 0 ? (
+                Array.isArray(products) &&
                 products.map((product) => {
                   return <CartItem key={product._id} productInfo={product} />;
                 })

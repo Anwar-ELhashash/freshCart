@@ -5,9 +5,10 @@ import useProducts from "../../hooks/useProducts";
 export default function ElectronicsCategoryProducts() {
   const { products, isLoading, isError, error } = useProducts();
 
-  if (isLoading) {
+  if (isLoading || !products) {
     return <Loading />;
   }
+
   if (isError) {
     console.log(error);
   }
@@ -28,9 +29,10 @@ export default function ElectronicsCategoryProducts() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-            {electronicProducts.map((elecProduct) => (
-              <ProductCard key={elecProduct.id} productInfo={elecProduct} />
-            ))}
+            {Array.isArray(electronicProducts) &&
+              electronicProducts.map((elecProduct) => (
+                <ProductCard key={elecProduct.id} productInfo={elecProduct} />
+              ))}
           </div>
         </div>
       </section>

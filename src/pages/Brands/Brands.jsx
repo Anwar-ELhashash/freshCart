@@ -70,19 +70,20 @@ export default function Brands() {
               <Loading />
             ) : (
               <div className="grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 py-10">
-                {brands.map((brand) => {
-                  return (
-                    <div
-                      key={brand._id}
-                      className="bg-white rounded-md overflow-hidden border border-gray-200"
-                    >
-                      <img src={brand.image} alt="" className="w-full" />
-                      <div className="border-t border-t-gray-200">
-                        <h3 className="font-semibold p-2 text-gray-600">{brand.name}</h3>
+                {Array.isArray(brands) &&
+                  brands.map((brand) => {
+                    return (
+                      <div
+                        key={brand._id}
+                        className="bg-white rounded-md overflow-hidden border border-gray-200"
+                      >
+                        <img src={brand.image} alt="" className="w-full" />
+                        <div className="border-t border-t-gray-200">
+                          <h3 className="font-semibold p-2 text-gray-600">{brand.name}</h3>
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
               </div>
             )}
           </div>

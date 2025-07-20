@@ -14,7 +14,7 @@ export default function RelatedProducts({ productDetails }) {
 
   const { products, isLoading } = useProducts({ category: category._id });
 
-  if (isLoading) {
+  if (isLoading || !products) {
     return <Loading />;
   }
 
@@ -56,13 +56,14 @@ export default function RelatedProducts({ productDetails }) {
             },
           }}
         >
-          {products.map((product) => {
-            return (
-              <SwiperSlide key={product.id}>
-                <ProductCard productInfo={product} />
-              </SwiperSlide>
-            );
-          })}
+          {Array.isArray(products) &&
+            products.map((product) => {
+              return (
+                <SwiperSlide key={product.id}>
+                  <ProductCard productInfo={product} />
+                </SwiperSlide>
+              );
+            })}
         </Swiper>
       </div>
     </>

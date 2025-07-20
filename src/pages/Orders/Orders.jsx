@@ -14,7 +14,7 @@ export default function Orders() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (isLoading) {
+  if (isLoading || !orders) {
     return <Loading />;
   }
 
@@ -28,7 +28,8 @@ export default function Orders() {
             {/* orders */}
             <div className="space-y-2">
               {orders !== null
-                ? orders.map((order) => {
+                ? Array.isArray(orders) &&
+                  orders.map((order) => {
                     return <OrderCard key={order.id} order={order} />;
                   })
                 : ""}

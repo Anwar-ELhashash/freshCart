@@ -31,6 +31,7 @@ export default function ProductInfo({ productDetails }) {
 
   const { handelAddProductToCart } = useContext(CartContext);
   const { token } = useContext(TokenContext);
+
   return (
     <>
       <section className="container py-8 ">
@@ -41,12 +42,15 @@ export default function ProductInfo({ productDetails }) {
               showNav={false}
               showFullscreenButton={false}
               showPlayButton={false}
-              items={images.map((image) => {
-                return {
-                  original: image,
-                  thumbnail: image,
-                };
-              })}
+              items={
+                Array.isArray(images) &&
+                images.map((image) => {
+                  return {
+                    original: image,
+                    thumbnail: image,
+                  };
+                })
+              }
             />
           </div>
 

@@ -25,16 +25,17 @@ export default function OrderCard({ order }) {
         <div className="py-3 px-4 flex items-center *:flex-1 gap-4">
           {/* images */}
           <div className="flex items-center gap-1">
-            {cartItems.map((item) => {
-              return (
-                <div key={item._id} className="w-16 relative">
-                  <img src={item.product.imageCover} alt="" className="w-full" />
-                  <span className="absolute bg-primary-600 text-white flex justify-center items-center size-4 rounded-[3px] py-3 top-0 right-0">
-                    {item.count}
-                  </span>
-                </div>
-              );
-            })}
+            {Array.isArray(cartItems) &&
+              cartItems.map((item) => {
+                return (
+                  <div key={item._id} className="w-16 relative">
+                    <img src={item.product.imageCover} alt="" className="w-full" />
+                    <span className="absolute bg-primary-600 text-white flex justify-center items-center size-4 rounded-[3px] py-3 top-0 right-0">
+                      {item.count}
+                    </span>
+                  </div>
+                );
+              })}
           </div>
           {/* items */}
           <div>

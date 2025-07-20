@@ -5,7 +5,7 @@ import useProducts from "../../hooks/useProducts";
 export default function AllCategories() {
   const { products, isLoading, isError, error } = useProducts();
 
-  if (isLoading) {
+  if (isLoading || !products) {
     return <Loading />;
   }
 
@@ -23,9 +23,8 @@ export default function AllCategories() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-            {products.map((product) => (
-              <ProductCard key={product.id} productInfo={product} />
-            ))}
+            {Array.isArray(products) &&
+              products.map((product) => <ProductCard key={product.id} productInfo={product} />)}
           </div>
         </div>
       </section>

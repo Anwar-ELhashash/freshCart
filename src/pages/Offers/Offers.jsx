@@ -6,7 +6,7 @@ import useProducts from "../../hooks/useProducts";
 export default function Offers() {
   const { products, isLoading } = useProducts();
 
-  if (isLoading) {
+  if (isLoading || !products) {
     return <Loading />;
   }
 
@@ -27,9 +27,8 @@ export default function Offers() {
 
           {/* Cards */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-3 pt-8">
-            {deals.map((deal) => (
-              <ProductCard key={deal.id} productInfo={deal} />
-            ))}
+            {Array.isArray(deals) &&
+              deals.map((deal) => <ProductCard key={deal.id} productInfo={deal} />)}
           </div>
         </div>
       </section>

@@ -5,12 +5,12 @@ import WishlistItem from "../../components/WishlistItem/WishlistItem";
 import { useContext } from "react";
 import { WishlistContext } from "../../context/Wishlist.context";
 import Loading from "../../components/Loading/Loading";
-import { CartContext } from "../../context/Cart.context";
 import { Link } from "react-router";
 
 export default function Wishlist() {
   const { wishlist, isLoading, clearWishlist } = useContext(WishlistContext);
-  if (isLoading) {
+
+  if (isLoading || !wishlist) {
     return <Loading />;
   }
 
@@ -45,9 +45,10 @@ export default function Wishlist() {
               </div>
               {/* wishlist items */}
               <div>
-                {data.map((item) => {
-                  return <WishlistItem key={item.id} productInfo={item} />;
-                })}
+                {Array.isArray(data) &&
+                  data.map((item) => {
+                    return <WishlistItem key={item.id} productInfo={item} />;
+                  })}
               </div>
             </>
           ) : (
