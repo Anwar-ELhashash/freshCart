@@ -12,9 +12,9 @@ export default function MenCategoryProducts() {
     console.log(error);
   }
 
-  const menProducts = products.filter(
-    (product) => product.category._id === "6439d5b90049ad0b52b90048"
-  );
+  const menProducts = Array.isArray(products)
+    ? products.filter((product) => product.category._id === "6439d5b90049ad0b52b90048")
+    : [];
 
   return (
     <>

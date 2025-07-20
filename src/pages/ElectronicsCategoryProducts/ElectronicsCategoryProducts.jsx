@@ -3,14 +3,18 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 import useProducts from "../../hooks/useProducts";
 
 export default function ElectronicsCategoryProducts() {
-  const { products, isLoading } = useProducts();
+  const { products, isLoading, isError, error } = useProducts();
 
   if (isLoading) {
     return <Loading />;
   }
-  const electronicProducts = products.filter(
-    (product) => product.category._id === "6439d2d167d9aa4ca970649f"
-  );
+  if (isError) {
+    console.log(error);
+  }
+
+  const electronicProducts = Array.isArray(products)
+    ? products.filter((product) => product.category._id === "6439d2d167d9aa4ca970649f")
+    : [];
 
   return (
     <>

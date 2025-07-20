@@ -13,9 +13,9 @@ export default function WomenCategoryProducts() {
     console.log(error);
   }
 
-  const womenProducts = products.filter(
-    (product) => product.category._id === "6439d58a0049ad0b52b9003f"
-  );
+  const womenProducts = Array.isArray(products)
+    ? products.filter((product) => product.category._id === "6439d58a0049ad0b52b9003f")
+    : [];
 
   return (
     <>

@@ -7,13 +7,18 @@ import TimeLeft from "../../TimeLeft/TimeLeft";
 import useProducts from "../../../hooks/useProducts";
 
 export default function HomeDeals() {
-  const { products, isLoading } = useProducts();
+  const { products, isLoading, isError, error } = useProducts();
 
   if (isLoading) {
     return <Loading />;
   }
+  if (isError) {
+    console.log(error);
+  }
 
-  const deals = products.filter((product) => product.priceAfterDiscount).slice(0, 5);
+  const deals = Array.isArray(products)
+    ? products.filter((product) => product.priceAfterDiscount).slice(0, 5)
+    : [];
 
   return (
     <>
