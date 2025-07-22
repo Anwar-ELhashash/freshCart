@@ -19,13 +19,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import freshCartLogo from "./../../assets/images/freshCart-logo.svg";
 import { Link, NavLink } from "react-router";
 import { useContext, useState } from "react";
-import { TokenContext } from "../../context/Token.context";
 import { CartContext } from "../../context/Cart.context";
 import useOnlineStatus from "../../hooks/useOnlineStatus";
+import { useDispatch, useSelector } from "react-redux";
+import { actions } from "../../app/token.slice";
 
 export default function Navbar() {
+  // Using Redux With Token
+  const { logOut } = actions;
+  const { token } = useSelector((store) => {
+    return store.tokenReducer;
+  });
+  const dispatch = useDispatch();
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { token, logOut } = useContext(TokenContext);
   const { cartInfo, isLoading } = useContext(CartContext);
   const status = useOnlineStatus();
 
@@ -198,7 +205,9 @@ export default function Navbar() {
                   <>
                     <li
                       className="transition-all duration-200 hover:text-primary-500 cursor-pointer"
-                      onClick={logOut}
+                      onClick={() => {
+                        dispatch(logOut());
+                      }}
                     >
                       <FontAwesomeIcon className="text-lg" icon={faRightFromBracket} />
                       <p className="mt-1 text-13">logout</p>
@@ -372,7 +381,9 @@ export default function Navbar() {
                       <>
                         <li
                           className="flex gap-2 items-center py-2 px-1.5 rounded-md transition-all duration-200 hover:bg-primary-100/60 hover:text-primary-500 cursor-pointer "
-                          onClick={logOut}
+                          onClick={() => {
+                            dispatch(logOut());
+                          }}
                         >
                           <FontAwesomeIcon className="text-lg size-6" icon={faRightFromBracket} />
                           <p className="text-sm">logout</p>

@@ -1,9 +1,11 @@
-import { useContext } from "react";
 import { Navigate } from "react-router";
-import { TokenContext } from "../../context/Token.context";
+import { useSelector } from "react-redux";
 
 export default function GuardRoute({ children }) {
-  const { token } = useContext(TokenContext);
+  // Using Redux With Token
+  const { token } = useSelector((store) => {
+    return store.tokenReducer;
+  });
 
   // if user login will not send you to (login, signup, verifyEmail, forgot-password)
   if (token === null) {

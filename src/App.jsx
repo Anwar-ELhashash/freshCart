@@ -15,7 +15,6 @@ import VerifyEmail from "./pages/VerifyEmail/VerifyEmail.jsx";
 import Wishlist from "./pages/Wishlist/Wishlist.jsx";
 import { Toaster } from "react-hot-toast";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword.jsx";
-import TokenProvider from "./context/Token.context.jsx";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute.jsx";
 import GuardRoute from "./components/GuardRoute/GuardRoute.jsx";
 import CartProvider from "./context/Cart.context.jsx";
@@ -31,6 +30,8 @@ import { OrderProvider } from "./context/Order.context.jsx";
 import OfflineScreen from "./components/OfflineScreen/OfflineScreen.jsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { Provider } from "react-redux";
+import { store } from "./app/store.jsx";
 
 const routes = createBrowserRouter([
   {
@@ -125,11 +126,12 @@ function App() {
       },
     },
   });
+
   return (
     <>
-      <QueryClientProvider client={queryClient}>
-        <OfflineScreen>
-          <TokenProvider>
+      <Provider store={store}>
+        <QueryClientProvider client={queryClient}>
+          <OfflineScreen>
             <OrderProvider>
               <WishlistProvider>
                 <CartProvider>
@@ -138,11 +140,11 @@ function App() {
                 </CartProvider>
               </WishlistProvider>
             </OrderProvider>
-          </TokenProvider>
-        </OfflineScreen>
+          </OfflineScreen>
 
-        <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
+      </Provider>
     </>
   );
 }

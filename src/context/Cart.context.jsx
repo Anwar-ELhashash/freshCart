@@ -5,15 +5,15 @@ import {
   removeItemFromCart,
   updateQuantityOfProduct,
 } from "../services/cart-service";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { useSelector } from "react-redux";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const CartContext = createContext(null);
 
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { TokenContext } from "./Token.context";
 
 const MySwal = withReactContent(Swal);
 
@@ -22,7 +22,11 @@ export default function CartProvider({ children }) {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [error, setError] = useState(null);
-  const { token } = useContext(TokenContext);
+
+  // Using Redux With Token
+  const { token } = useSelector((store) => {
+    return store.tokenReducer;
+  });
 
   // * Add Item To Cart
   async function handelAddProductToCart({ id }) {

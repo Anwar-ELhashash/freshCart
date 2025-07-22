@@ -9,12 +9,11 @@ import loginImage from "./../../assets/images/login-img.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { Link, useLocation, useNavigate } from "react-router";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import toast from "react-hot-toast";
 import { sendDataToSignIn } from "../../services/auth-service";
-import { TokenContext } from "../../context/Token.context";
 import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
 
 export default function Login() {
@@ -24,7 +23,6 @@ export default function Login() {
   const [ifNotFound, setIfNotFound] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { setToken } = useContext(TokenContext);
   const location = useLocation();
   const from = location?.state?.from || "/";
 
@@ -38,19 +36,19 @@ export default function Login() {
   async function signin(values) {
     const loadingId = toast.loading("loading");
     setLoading(true);
+
     try {
       setIfNotFound(null);
-
       const response = await sendDataToSignIn(values);
 
       if (response.success) {
         toast.success("Welcome Back", { duration: 1000 });
-        setToken(response.data.token);
 
         if (formik.values.rememberMe) {
           localStorage.setItem("token", response.data.token);
-        } else sessionStorage.setItem("token", response.data.token);
-
+        } else {
+          sessionStorage.setItem("token", response.data.token);
+        }
         setTimeout(() => {
           navigate(from);
         }, 1000);

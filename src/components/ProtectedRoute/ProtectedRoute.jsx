@@ -1,9 +1,12 @@
-import { useContext } from "react";
+import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router";
-import { TokenContext } from "../../context/Token.context";
 
 export default function ProtectedRoute({ children }) {
-  const { token } = useContext(TokenContext);
+  // Using Redux With Token
+  const { token } = useSelector((store) => {
+    return store.tokenReducer;
+  });
+
   const location = useLocation();
 
   // if user login will send you to any page

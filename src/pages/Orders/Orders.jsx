@@ -1,13 +1,17 @@
 import { useContext, useEffect } from "react";
 import OrderCard from "../../components/OrderCard/OrderCard";
-import { TokenContext } from "../../context/Token.context";
 import { jwtDecode } from "jwt-decode";
 import { OrderContext } from "../../context/Order.context";
 import OrdersSkeleton from "../../components/Skeleton/OrdersSkeleton";
 import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
+import { useSelector } from "react-redux";
 export default function Orders() {
+  // Using Redux With Token
+  const { token } = useSelector((store) => {
+    return store.tokenReducer;
+  });
+
   const { handelGetAllOrders, isLoading, orders } = useContext(OrderContext);
-  const { token } = useContext(TokenContext);
   const { id } = jwtDecode(token);
 
   useEffect(() => {

@@ -6,8 +6,8 @@ import Rating from "../Rating/Rating";
 import { Link } from "react-router";
 import { useContext } from "react";
 import { CartContext } from "../../context/Cart.context";
-import { TokenContext } from "../../context/Token.context";
 import { WishlistContext } from "../../context/Wishlist.context";
+import { useSelector } from "react-redux";
 
 export default function ProductCard({ productInfo }) {
   const {
@@ -21,9 +21,13 @@ export default function ProductCard({ productInfo }) {
     priceAfterDiscount,
   } = productInfo;
 
-  const { token } = useContext(TokenContext);
   const { handelAddProductToCart } = useContext(CartContext);
   const { handelAddProductToWishList } = useContext(WishlistContext);
+
+  // Using Redux With Token
+  const { token } = useSelector((store) => {
+    return store.tokenReducer;
+  });
 
   return (
     <>

@@ -1,11 +1,11 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import {
   addProductToWishlist,
   getWishlistItems,
   removeItemFromWishlist,
 } from "../services/wishlist-service";
 import toast from "react-hot-toast";
-import { TokenContext } from "./Token.context";
+import { useSelector } from "react-redux";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const WishlistContext = createContext(null);
@@ -17,7 +17,10 @@ export default function WishlistProvider({ children }) {
   const [error, setError] = useState(null);
   const [allIds, setAllIds] = useState(null);
 
-  const { token } = useContext(TokenContext);
+  // Using Redux With Token
+  const { token } = useSelector((store) => {
+    return store.tokenReducer;
+  });
 
   async function handelAddProductToWishList({ id }) {
     const loading = toast.loading("Loading...");

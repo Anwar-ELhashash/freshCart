@@ -14,7 +14,7 @@ import ReactImageGallery from "react-image-gallery";
 import { useContext } from "react";
 import { CartContext } from "../../../context/Cart.context";
 import "react-image-gallery/styles/css/image-gallery.css";
-import { TokenContext } from "../../../context/Token.context";
+import { useSelector } from "react-redux";
 
 export default function ProductInfo({ productDetails }) {
   const {
@@ -29,8 +29,11 @@ export default function ProductInfo({ productDetails }) {
     quantity,
   } = productDetails;
 
+  // Using Redux With Token
   const { handelAddProductToCart } = useContext(CartContext);
-  const { token } = useContext(TokenContext);
+  const { token } = useSelector((store) => {
+    return store.tokenReducer;
+  });
 
   return (
     <>
