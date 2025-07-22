@@ -3,21 +3,31 @@ import ProductDetailsTabs from "../../components/ProductDetailsComponents/Produc
 import ProductInfo from "../../components/ProductDetailsComponents/ProductInfo/ProductInfo";
 import RelatedProducts from "../../components/ProductDetailsComponents/RelatedProducts/RelatedProducts";
 import useProductDetails from "../../hooks/useProductDetails";
-import Loading from "../../components/Loading/Loading";
+import RelatedProductsSkeleton from "../../components/Skeleton/RelatedProductsSkeleton";
+import ProductInfoSkeleton from "../../components/Skeleton/ProductInfoSkeleton";
+import ProductDetailsTabsSkeleton from "../../components/Skeleton/ProductDetailsTabsSkeleton";
+import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
 
 export default function ProductDetails() {
   const { id } = useParams();
   const { productDetails, isLoading } = useProductDetails(id);
 
   if (isLoading) {
-    return <Loading />;
+    return (
+      <>
+        <ProductInfoSkeleton />
+        <ProductDetailsTabsSkeleton />
+        <RelatedProductsSkeleton />
+      </>
+    );
   }
 
   return (
     <>
+      <PageMetaData title={productDetails.title} />
       <main className="bg-gray-50">
-        <ProductInfo productDetails={productDetails} />
-        <ProductDetailsTabs productDetails={productDetails} />
+        <ProductInfo isLoading={isLoading} productDetails={productDetails} />
+        <ProductDetailsTabs isLoading={isLoading} productDetails={productDetails} />
         <RelatedProducts productDetails={productDetails} />
       </main>
     </>

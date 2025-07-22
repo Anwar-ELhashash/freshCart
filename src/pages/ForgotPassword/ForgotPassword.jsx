@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router";
 import * as yup from "yup";
 import { forgotPassword } from "../../services/auth-service";
 import toast from "react-hot-toast";
+import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
 
 export default function ForgotPassword() {
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -42,6 +43,8 @@ export default function ForgotPassword() {
 
   return (
     <>
+      <PageMetaData title="Forgot Password" />
+
       <section className="bg-gray-50 py-15">
         <div className="container md:w-2/3 lg:w-1/2">
           <div className="space-y-4 border border-gray-200 rounded-md p-5">

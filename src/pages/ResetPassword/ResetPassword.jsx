@@ -5,6 +5,7 @@ import * as yup from "yup";
 import { resetPassword } from "../../services/auth-service";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router";
+import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
 
 export default function ResetPassword() {
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -51,6 +52,7 @@ export default function ResetPassword() {
 
   return (
     <>
+      <PageMetaData title="Reset Password" />
       <section className="bg-gray-50 py-15">
         <div className="container md:w-2/3 lg:w-1/2">
           <div className="space-y-4 border border-gray-200 rounded-md px-5 py-8 bg-white flex flex-col items-center">

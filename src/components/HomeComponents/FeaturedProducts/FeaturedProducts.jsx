@@ -1,12 +1,12 @@
 import ProductCard from "../../ProductCard/ProductCard";
-import Loading from "../../Loading/Loading";
 import useProducts from "../../../hooks/useProducts";
+import HomeFeaturedSkeleton from "../../Skeleton/HomeFeaturedSkeleton";
 
 export default function FeaturedProducts() {
   const { products, isLoading, isError, error } = useProducts();
 
   if (isLoading || !products) {
-    return <Loading />;
+    return <HomeFeaturedSkeleton />;
   }
 
   if (isError) {

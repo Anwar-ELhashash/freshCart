@@ -1,12 +1,13 @@
-import Loading from "../../components/Loading/Loading";
+import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import AllCategoriesSkeleton from "../../components/Skeleton/AllCategoriesSkeleton";
 import useProducts from "../../hooks/useProducts";
 
 export default function AllCategories() {
   const { products, isLoading, isError, error } = useProducts();
 
   if (isLoading || !products) {
-    return <Loading />;
+    return <AllCategoriesSkeleton />;
   }
 
   if (isError) {
@@ -15,6 +16,7 @@ export default function AllCategories() {
 
   return (
     <>
+      <PageMetaData title="All Products" />
       <section className="bg-gray-100 py-10">
         <div className="container space-y-15">
           <div className="text-center space-y-2">

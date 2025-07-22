@@ -15,6 +15,7 @@ import { useContext, useState } from "react";
 import { OrderContext } from "../../context/Order.context";
 import { CartContext } from "../../context/Cart.context";
 import toast from "react-hot-toast";
+import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
 
 export default function Checkout() {
   const { handelCreateCashOrder, handelCreateOnlineOrder, isLoading } = useContext(OrderContext);
@@ -54,6 +55,7 @@ export default function Checkout() {
 
   return (
     <>
+      <PageMetaData title="Checkout" />
       <section className="py-15 bg-gray-100 border-t border-t-gray-200">
         <div className="container">
           <div className="space-y-10  md:w-2/3 mx-auto">

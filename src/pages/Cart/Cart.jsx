@@ -3,14 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CartItem from "../../components/CartItem/CartItem";
 import { useContext } from "react";
 import { CartContext } from "../../context/Cart.context";
-import Loading from "../../components/Loading/Loading";
 import { Link } from "react-router";
+import CartSkeleton from "../../components/Skeleton/CartSkeleton";
+import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
 
 export default function Cart() {
   const { cartInfo, clearAllItems, isLoading } = useContext(CartContext);
 
   if (isLoading) {
-    return <Loading />;
+    return <CartSkeleton />;
   }
 
   let { numOfCartItems, data } = cartInfo;
@@ -18,6 +19,7 @@ export default function Cart() {
 
   return (
     <>
+      <PageMetaData title="Cart" />
       <section className="bg-gray-100 py-10">
         <div className="container grid grid-cols-6 gap-5 *:border *:border-gray-200 *:rounded-md *:bg-white *:py-4 *:shadow ">
           {/* left */}

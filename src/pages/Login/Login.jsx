@@ -15,6 +15,7 @@ import * as Yup from "yup";
 import toast from "react-hot-toast";
 import { sendDataToSignIn } from "../../services/auth-service";
 import { TokenContext } from "../../context/Token.context";
+import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
 
 export default function Login() {
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -80,6 +81,7 @@ export default function Login() {
 
   return (
     <>
+      <PageMetaData title="Login" />
       <section className="bg-gray-100 py-6">
         <div className="container flex flex-col md:flex-row gap-10 items-center justify-center *:lg:flex-1 ">
           {/* right section */}

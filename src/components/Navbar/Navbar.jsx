@@ -140,7 +140,7 @@ export default function Navbar() {
                     <p className="mt-1 text-13">cart</p>
                     {token ? (
                       <p className="absolute -top-1.5 -right-1.5 size-5 flex justify-center items-center text-white rounded-full bg-primary-500 text-sm p-1">
-                        {isLoading ? (
+                        {isLoading && !cartInfo ? (
                           <FontAwesomeIcon icon={faSpinner} spin />
                         ) : (
                           cartInfo.numOfCartItems

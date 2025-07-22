@@ -4,6 +4,7 @@ import { useFormik } from "formik";
 import { verifyResetCode } from "../../services/auth-service";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router";
+import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
 
 export default function VerifyEmail() {
   const navigate = useNavigate();
@@ -33,6 +34,7 @@ export default function VerifyEmail() {
 
   return (
     <>
+      <PageMetaData title="Verify Email" />
       <section className="py-15">
         <div className="container md:w-2/3 lg:w-1/2">
           <div className="space-y-5 border border-gray-200 rounded-md p-4 flex flex-col items-center">

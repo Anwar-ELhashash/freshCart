@@ -2,15 +2,15 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router";
 import ProductCard from "../../ProductCard/ProductCard";
-import Loading from "../../Loading/Loading";
 import TimeLeft from "../../TimeLeft/TimeLeft";
 import useProducts from "../../../hooks/useProducts";
+import HomeDealsSkeleton from "../../Skeleton/HomeDealsSkeleton";
 
 export default function HomeDeals() {
   const { products, isLoading, isError, error } = useProducts();
 
   if (isLoading || !products) {
-    return <Loading />;
+    return <HomeDealsSkeleton />;
   }
 
   if (isError) {

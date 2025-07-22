@@ -1,13 +1,13 @@
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router";
-import Loading from "../../Loading/Loading";
 import useCategories from "./../../../hooks/useCategories.js";
+import HomeCategorySkeleton from "../../Skeleton/HomeCategorySkeleton.jsx";
 export default function HomeCategory() {
   const { categories, isLoading, isError, error } = useCategories();
 
   if (isLoading || !categories) {
-    return <Loading />;
+    return <HomeCategorySkeleton />;
   }
   if (isError) {
     console.log(error);

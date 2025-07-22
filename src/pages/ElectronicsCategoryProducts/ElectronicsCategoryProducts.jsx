@@ -1,12 +1,13 @@
-import Loading from "../../components/Loading/Loading";
+import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import ElectronicsCategorySkeleton from "../../components/Skeleton/ElectronicsCategorySkeleton";
 import useProducts from "../../hooks/useProducts";
 
 export default function ElectronicsCategoryProducts() {
   const { products, isLoading, isError, error } = useProducts();
 
   if (isLoading || !products) {
-    return <Loading />;
+    return <ElectronicsCategorySkeleton />;
   }
 
   if (isError) {
@@ -19,6 +20,7 @@ export default function ElectronicsCategoryProducts() {
 
   return (
     <>
+      <PageMetaData title="Electronic Products" />
       <section className="bg-gray-100 py-10">
         <div className="container space-y-15">
           <div className="text-center space-y-2">

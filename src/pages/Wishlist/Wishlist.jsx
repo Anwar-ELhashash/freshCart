@@ -4,20 +4,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import WishlistItem from "../../components/WishlistItem/WishlistItem";
 import { useContext } from "react";
 import { WishlistContext } from "../../context/Wishlist.context";
-import Loading from "../../components/Loading/Loading";
 import { Link } from "react-router";
+import WishlistSkeleton from "../../components/Skeleton/WishlistSkeleton";
+import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
 
 export default function Wishlist() {
   const { wishlist, isLoading, clearWishlist } = useContext(WishlistContext);
 
   if (isLoading || !wishlist) {
-    return <Loading />;
+    return <WishlistSkeleton />;
   }
 
   const { count, data } = wishlist;
 
   return (
     <>
+      <PageMetaData title="Wishlist" />
       <section className="bg-gray-100 py-15 px-5">
         <div className="container rounded-lg bg-white p-5">
           <h2 className="text-2xl font-bold pb-2">My Wishlist</h2>

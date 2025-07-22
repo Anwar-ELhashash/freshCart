@@ -2,7 +2,8 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getBrands } from "../../services/brands-service";
 import { useEffect, useState } from "react";
-import Loading from "../../components/Loading/Loading";
+import BrandsSkeleton from "../../components/Skeleton/BrandsSkeleton";
+import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
 
 export default function Brands() {
   const [brands, setBrands] = useState(null);
@@ -28,6 +29,7 @@ export default function Brands() {
 
   return (
     <>
+      <PageMetaData title="Brands" />
       <section>
         {/* Top */}
         <div className="container text-center space-y-3 py-10">
@@ -67,7 +69,7 @@ export default function Brands() {
 
             {/* brands */}
             {isLoading ? (
-              <Loading />
+              <BrandsSkeleton />
             ) : (
               <div className="grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 py-10">
                 {Array.isArray(brands) &&

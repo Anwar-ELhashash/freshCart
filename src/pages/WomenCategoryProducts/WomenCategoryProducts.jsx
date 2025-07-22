@@ -1,12 +1,13 @@
-import Loading from "../../components/Loading/Loading";
+import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import WomenCategorySkeleton from "../../components/Skeleton/WomenCategorySkeleton";
 import useProducts from "../../hooks/useProducts";
 
 export default function WomenCategoryProducts() {
   const { products, isLoading, isError, error } = useProducts();
 
   if (isLoading || !products) {
-    return <Loading />;
+    return <WomenCategorySkeleton />;
   }
 
   if (isError) {
@@ -19,6 +20,7 @@ export default function WomenCategoryProducts() {
 
   return (
     <>
+      <PageMetaData title="Women Products" />
       <section className="bg-gray-100 py-10">
         <div className="container space-y-15">
           <div className="text-center space-y-2">

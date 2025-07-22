@@ -1,12 +1,13 @@
-import Loading from "../../components/Loading/Loading";
+import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import MenCategorySkeleton from "../../components/Skeleton/MenCategorySkeleton";
 import useProducts from "../../hooks/useProducts";
 
 export default function MenCategoryProducts() {
   const { products, isLoading, isError, error } = useProducts();
 
   if (isLoading || !products) {
-    return <Loading />;
+    return <MenCategorySkeleton />;
   }
   if (isError) {
     console.log(error);
@@ -18,6 +19,7 @@ export default function MenCategoryProducts() {
 
   return (
     <>
+      <PageMetaData title="Men Products" />
       <section className="bg-gray-100 py-10">
         <div className="container space-y-15">
           <div className="text-center space-y-2">

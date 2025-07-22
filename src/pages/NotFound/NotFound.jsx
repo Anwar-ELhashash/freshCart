@@ -2,10 +2,12 @@ import { Link } from "react-router";
 import image from "./../../assets/images/error.svg";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
 
 export default function NotFound() {
   return (
     <>
+      <PageMetaData title="Not Found" />
       <section className="py-15">
         <div className="container text-center space-y-3">
           <img src={image} alt="" className="mx-auto" />

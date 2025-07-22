@@ -18,6 +18,7 @@ import * as Yup from "yup";
 import toast from "react-hot-toast";
 import { sendDataToSignUp } from "../../services/auth-service";
 import { checkPasswordStrength } from "../../utils/validation";
+import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
 
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
@@ -89,6 +90,7 @@ export default function Signup() {
 
   return (
     <>
+      <PageMetaData title="Signup" />
       <section className="bg-gray-100 py-6">
         <div className="container flex flex-col md:flex-row gap-10 md:items-center *:flex-1">
           {/* right section */}

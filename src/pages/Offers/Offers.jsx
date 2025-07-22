@@ -1,18 +1,20 @@
-import Loading from "../../components/Loading/Loading";
 import TimeLeft from "../../components/TimeLeft/TimeLeft";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import useProducts from "../../hooks/useProducts";
+import OffersSkeleton from "../../components/Skeleton/OffersSkeleton";
+import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
 
 export default function Offers() {
   const { products, isLoading } = useProducts();
 
   if (isLoading || !products) {
-    return <Loading />;
+    return <OffersSkeleton />;
   }
 
   const deals = products.filter((product) => product.priceAfterDiscount);
   return (
     <>
+      <PageMetaData title="Offers" />
       <section className="py-8">
         <div className="container">
           <h1 className="text-center text-2xl font-semibold">All Offers</h1>
