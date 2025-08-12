@@ -5,12 +5,13 @@ import { OrderContext } from "../../context/Order.context";
 import OrdersSkeleton from "../../components/Skeleton/OrdersSkeleton";
 import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
 import { useSelector } from "react-redux";
+import useScrollTop from "../../hooks/useScroll";
 export default function Orders() {
   // Using Redux With Token
   const { token } = useSelector((store) => {
     return store.tokenReducer;
   });
-
+  useScrollTop();
   const { handelGetAllOrders, isLoading, orders } = useContext(OrderContext);
   const { id } = jwtDecode(token);
 

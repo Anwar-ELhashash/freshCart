@@ -2,10 +2,11 @@ import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import ElectronicsCategorySkeleton from "../../components/Skeleton/ElectronicsCategorySkeleton";
 import useProducts from "../../hooks/useProducts";
+import useScrollTop from "../../hooks/useScroll";
 
 export default function ElectronicsCategoryProducts() {
   const { products, isLoading, isError, error } = useProducts();
-
+  useScrollTop();
   if (isLoading || !products) {
     return <ElectronicsCategorySkeleton />;
   }

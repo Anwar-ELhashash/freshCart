@@ -6,6 +6,7 @@ import Rating from "../Rating/Rating";
 import { CartContext } from "../../context/Cart.context";
 
 export default function CartItem({ productInfo }) {
+  console.log(productInfo);
   const { count, price, product, priceAfterDiscount } = productInfo;
   const { imageCover, ratingsAverage, title, category, id } = product;
   // here

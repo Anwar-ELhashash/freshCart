@@ -7,11 +7,12 @@ import RelatedProductsSkeleton from "../../components/Skeleton/RelatedProductsSk
 import ProductInfoSkeleton from "../../components/Skeleton/ProductInfoSkeleton";
 import ProductDetailsTabsSkeleton from "../../components/Skeleton/ProductDetailsTabsSkeleton";
 import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
+import useScrollTop from "../../hooks/useScroll";
 
 export default function ProductDetails() {
   const { id } = useParams();
   const { productDetails, isLoading } = useProductDetails(id);
-
+  useScrollTop();
   if (isLoading) {
     return (
       <>

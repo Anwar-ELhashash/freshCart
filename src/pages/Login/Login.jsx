@@ -15,6 +15,9 @@ import * as Yup from "yup";
 import toast from "react-hot-toast";
 import { sendDataToSignIn } from "../../services/auth-service";
 import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
+import { actions } from "../../app/token.slice";
+import { useDispatch } from "react-redux";
+import useScrollTop from "../../hooks/useScroll";
 
 export default function Login() {
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -25,7 +28,9 @@ export default function Login() {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from || "/";
-
+  const { setToken } = actions;
+  const dispatch = useDispatch();
+  useScrollTop();
   const schema = Yup.object({
     email: Yup.string().required("this field is required").matches(emailRegex, "invalid email"),
     password: Yup.string()
@@ -49,6 +54,9 @@ export default function Login() {
         } else {
           sessionStorage.setItem("token", response.data.token);
         }
+
+        dispatch(setToken());
+
         setTimeout(() => {
           navigate(from);
         }, 1000);

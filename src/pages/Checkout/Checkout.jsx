@@ -16,6 +16,7 @@ import { OrderContext } from "../../context/Order.context";
 import { CartContext } from "../../context/Cart.context";
 import toast from "react-hot-toast";
 import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
+import useScrollTop from "../../hooks/useScroll";
 
 export default function Checkout() {
   const { handelCreateCashOrder, handelCreateOnlineOrder, isLoading } = useContext(OrderContext);
@@ -23,7 +24,7 @@ export default function Checkout() {
   const { cartInfo } = useContext(CartContext);
   const [payment, setPayment] = useState(null);
   const navigate = useNavigate();
-
+  useScrollTop();
   function makeOrder(values) {
     const shippingAddress = { shippingAddress: values };
     if (payment === null) {

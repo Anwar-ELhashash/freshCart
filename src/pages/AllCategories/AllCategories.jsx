@@ -2,10 +2,11 @@ import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import AllCategoriesSkeleton from "../../components/Skeleton/AllCategoriesSkeleton";
 import useProducts from "../../hooks/useProducts";
+import useScrollTop from "../../hooks/useScroll";
 
 export default function AllCategories() {
   const { products, isLoading, isError, error } = useProducts();
-
+  useScrollTop();
   if (isLoading || !products) {
     return <AllCategoriesSkeleton />;
   }

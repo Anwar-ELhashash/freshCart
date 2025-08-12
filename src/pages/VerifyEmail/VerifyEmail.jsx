@@ -5,9 +5,11 @@ import { verifyResetCode } from "../../services/auth-service";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router";
 import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
+import useScrollTop from "../../hooks/useScroll";
 
 export default function VerifyEmail() {
   const navigate = useNavigate();
+  useScrollTop();
   async function handelVerifyResetCode({ resetCode }) {
     const loading = toast.loading("loading...");
     try {

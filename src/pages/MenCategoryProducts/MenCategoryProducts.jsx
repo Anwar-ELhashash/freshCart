@@ -2,10 +2,11 @@ import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import MenCategorySkeleton from "../../components/Skeleton/MenCategorySkeleton";
 import useProducts from "../../hooks/useProducts";
+import useScrollTop from "../../hooks/useScroll";
 
 export default function MenCategoryProducts() {
   const { products, isLoading, isError, error } = useProducts();
-
+  useScrollTop();
   if (isLoading || !products) {
     return <MenCategorySkeleton />;
   }

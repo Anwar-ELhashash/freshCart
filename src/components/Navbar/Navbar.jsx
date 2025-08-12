@@ -125,9 +125,8 @@ export default function Navbar() {
                   <NavLink
                     to="/wishlist"
                     className={({ isActive }) => {
-                      return `${
-                        isActive ? "text-primary-500" : ""
-                      } transition-all duration-200 text-lg hover:text-primary-500`;
+                      return `${isActive ? "text-primary-500" : ""
+                        } transition-all duration-200 text-lg hover:text-primary-500`;
                     }}
                   >
                     <FontAwesomeIcon icon={faHeart} />
@@ -138,9 +137,8 @@ export default function Navbar() {
                   <NavLink
                     to="/cart"
                     className={({ isActive }) => {
-                      return `${
-                        isActive ? "text-primary-500" : ""
-                      } transition-all duration-200 text-lg hover:text-primary-500`;
+                      return `${isActive ? "text-primary-500" : ""
+                        } transition-all duration-200 text-lg hover:text-primary-500`;
                     }}
                   >
                     <FontAwesomeIcon icon={faCartShopping} />
@@ -162,9 +160,8 @@ export default function Navbar() {
                   <NavLink
                     to="/account"
                     className={({ isActive }) => {
-                      return `${
-                        isActive ? "text-primary-500" : ""
-                      } transition-all duration-200 text-lg hover:text-primary-500`;
+                      return `${isActive ? "text-primary-500" : ""
+                        } transition-all duration-200 text-lg hover:text-primary-500`;
                     }}
                   >
                     <FontAwesomeIcon icon={faUser} />
@@ -178,9 +175,8 @@ export default function Navbar() {
                       <NavLink
                         to="/signup"
                         className={({ isActive }) => {
-                          return `${
-                            isActive ? "text-primary-500" : ""
-                          } transition-all duration-200 text-lg hover:text-primary-500`;
+                          return `${isActive ? "text-primary-500" : ""
+                            } transition-all duration-200 text-lg hover:text-primary-500`;
                         }}
                       >
                         <FontAwesomeIcon icon={faUserPlus} />
@@ -191,9 +187,8 @@ export default function Navbar() {
                       <NavLink
                         to="/login"
                         className={({ isActive }) => {
-                          return `${
-                            isActive ? "text-primary-500" : ""
-                          } transition-all duration-200 text-lg hover:text-primary-500`;
+                          return `${isActive ? "text-primary-500" : ""
+                            } transition-all duration-200 text-lg hover:text-primary-500`;
                         }}
                       >
                         <FontAwesomeIcon icon={faIdCard} />
@@ -230,9 +225,8 @@ export default function Navbar() {
               {/* mobile medea */}
               {/* background */}
               <div
-                className={`${
-                  isMenuOpen ? "block" : "hidden"
-                } background fixed inset-0 bg-black/40 z-40`}
+                className={`${isMenuOpen ? "block" : "hidden"
+                  } background fixed inset-0 bg-black/40 z-40`}
                 onClick={() => {
                   setIsMenuOpen(false);
                 }}
@@ -240,9 +234,8 @@ export default function Navbar() {
 
               {/* offCanvas */}
               <div
-                className={`${
-                  isMenuOpen ? "-left-0" : "-left-full"
-                } offCanvas md:hidden fixed top-0 bottom-0 p-3 space-y-5 bg-white z-50 border-r border-gray-200 transition-all duration-300`}
+                className={`${isMenuOpen ? "-left-0" : "-left-full"
+                  } offCanvas md:hidden fixed top-0 bottom-0 p-3 space-y-5 bg-white z-50 border-r border-gray-200 transition-all duration-300`}
               >
                 {/* logo section */}
                 <div className="flex justify-between">
@@ -283,9 +276,8 @@ export default function Navbar() {
                       <NavLink
                         to="/wishlist"
                         className={({ isActive }) => {
-                          return `${
-                            isActive ? "text-primary-500 bg-primary-100/60" : ""
-                          } flex gap-2 text-lg items-center py-2 px-1.5 rounded-md transition-all duration-200 hover:bg-primary-100/60 hover:text-primary-500`;
+                          return `${isActive ? "text-primary-500 bg-primary-100/60" : ""
+                            } flex gap-2 text-lg items-center py-2 px-1.5 rounded-md transition-all duration-200 hover:bg-primary-100/60 hover:text-primary-500`;
                         }}
                         onClick={() => {
                           setIsMenuOpen(false);
@@ -299,9 +291,8 @@ export default function Navbar() {
                       <NavLink
                         to="/cart"
                         className={({ isActive }) => {
-                          return `${
-                            isActive ? "text-primary-500 bg-primary-100/60" : ""
-                          } flex gap-2 text-lg items-center py-2 px-1.5 rounded-md transition-all duration-200 hover:bg-primary-100/60 hover:text-primary-500`;
+                          return `${isActive ? "text-primary-500 bg-primary-100/60" : ""
+                            } flex gap-2 text-lg items-center py-2 px-1.5 rounded-md transition-all duration-200 hover:bg-primary-100/60 hover:text-primary-500`;
                         }}
                         onClick={() => {
                           setIsMenuOpen(false);
@@ -326,9 +317,8 @@ export default function Navbar() {
                       <NavLink
                         to="/account"
                         className={({ isActive }) => {
-                          return `${
-                            isActive ? "text-primary-500 bg-primary-100/60" : ""
-                          } flex gap-2 text-lg items-center py-2 px-1.5 rounded-md transition-all duration-200 hover:bg-primary-100/60 hover:text-primary-500`;
+                          return `${isActive ? "text-primary-500 bg-primary-100/60" : ""
+                            } flex gap-2 text-lg items-center py-2 px-1.5 rounded-md transition-all duration-200 hover:bg-primary-100/60 hover:text-primary-500`;
                         }}
                         onClick={() => {
                           setIsMenuOpen(false);
@@ -348,9 +338,8 @@ export default function Navbar() {
                           <NavLink
                             to="/signup"
                             className={({ isActive }) => {
-                              return `${
-                                isActive ? "text-primary-500 bg-primary-100/60" : ""
-                              } flex gap-2 text-lg items-center py-2 px-1.5 rounded-md transition-all duration-200 hover:bg-primary-100/60 hover:text-primary-500`;
+                              return `${isActive ? "text-primary-500 bg-primary-100/60" : ""
+                                } flex gap-2 text-lg items-center py-2 px-1.5 rounded-md transition-all duration-200 hover:bg-primary-100/60 hover:text-primary-500`;
                             }}
                             onClick={() => {
                               setIsMenuOpen(false);
@@ -364,9 +353,8 @@ export default function Navbar() {
                           <NavLink
                             to="/login"
                             className={({ isActive }) => {
-                              return `${
-                                isActive ? "text-primary-500 bg-primary-100/60" : ""
-                              } flex gap-2 text-lg items-center py-2 px-1.5 rounded-md transition-all duration-200 hover:bg-primary-100/60 hover:text-primary-500`;
+                              return `${isActive ? "text-primary-500 bg-primary-100/60" : ""
+                                } flex gap-2 text-lg items-center py-2 px-1.5 rounded-md transition-all duration-200 hover:bg-primary-100/60 hover:text-primary-500`;
                             }}
                             onClick={() => {
                               setIsMenuOpen(false);
@@ -449,9 +437,8 @@ export default function Navbar() {
                   <li>
                     <NavLink
                       className={({ isActive }) => {
-                        return `${
-                          isActive ? "text-white bg-primary-600" : ""
-                        } transition-all duration-200 rounded-md px-2 py-1 hover:text-white hover:bg-primary-600`;
+                        return `${isActive ? "text-white bg-primary-600" : ""
+                          } transition-all duration-200 rounded-md px-2 py-1 hover:text-white hover:bg-primary-600`;
                       }}
                       to="/home"
                     >
@@ -461,9 +448,8 @@ export default function Navbar() {
                   <li>
                     <NavLink
                       className={({ isActive }) => {
-                        return `${
-                          isActive ? "text-white bg-primary-600" : ""
-                        } transition-all duration-200 rounded-md px-2 py-1 hover:text-white hover:bg-primary-600`;
+                        return `${isActive ? "text-white bg-primary-600" : ""
+                          } transition-all duration-200 rounded-md px-2 py-1 hover:text-white hover:bg-primary-600`;
                       }}
                       to="/allorders"
                     >
@@ -473,9 +459,8 @@ export default function Navbar() {
                   <li>
                     <NavLink
                       className={({ isActive }) => {
-                        return `${
-                          isActive ? "text-white bg-primary-600" : ""
-                        } transition-all duration-200 rounded-md px-2 py-1 hover:text-white hover:bg-primary-600`;
+                        return `${isActive ? "text-white bg-primary-600" : ""
+                          } transition-all duration-200 rounded-md px-2 py-1 hover:text-white hover:bg-primary-600`;
                       }}
                       to="/featured"
                     >
@@ -485,9 +470,8 @@ export default function Navbar() {
                   <li>
                     <NavLink
                       className={({ isActive }) => {
-                        return `${
-                          isActive ? "text-white bg-primary-600" : ""
-                        } transition-all duration-200 rounded-md px-2 py-1 hover:text-white hover:bg-primary-600`;
+                        return `${isActive ? "text-white bg-primary-600" : ""
+                          } transition-all duration-200 rounded-md px-2 py-1 hover:text-white hover:bg-primary-600`;
                       }}
                       to="/offers"
                     >
@@ -497,9 +481,8 @@ export default function Navbar() {
                   <li>
                     <NavLink
                       className={({ isActive }) => {
-                        return `${
-                          isActive ? "text-white bg-primary-600" : ""
-                        } transition-all duration-200 rounded-md px-2 py-1 hover:text-white hover:bg-primary-600`;
+                        return `${isActive ? "text-white bg-primary-600" : ""
+                          } transition-all duration-200 rounded-md px-2 py-1 hover:text-white hover:bg-primary-600`;
                       }}
                       to="/brands"
                     >

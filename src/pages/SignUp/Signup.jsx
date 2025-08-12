@@ -19,6 +19,7 @@ import toast from "react-hot-toast";
 import { sendDataToSignUp } from "../../services/auth-service";
 import { checkPasswordStrength } from "../../utils/validation";
 import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
+import useScrollTop from "../../hooks/useScroll";
 
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
@@ -30,7 +31,7 @@ export default function Signup() {
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?#&^])[A-Za-z\d@$!%*?#&^]{6,}$/;
   const egyptianPhoneRegex = /^(01)[0125][0-9]{8}$/;
-
+  useScrollTop();
   const schema = Yup.object({
     name: Yup.string()
       .required("Name is required")

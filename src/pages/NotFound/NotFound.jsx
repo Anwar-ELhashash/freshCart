@@ -3,8 +3,10 @@ import image from "./../../assets/images/error.svg";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
+import useScrollTop from "../../hooks/useScroll";
 
 export default function NotFound() {
+  useScrollTop();
   return (
     <>
       <PageMetaData title="Not Found" />

@@ -6,10 +6,11 @@ import { CartContext } from "../../context/Cart.context";
 import { Link } from "react-router";
 import CartSkeleton from "../../components/Skeleton/CartSkeleton";
 import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
+import useScrollTop from "../../hooks/useScroll";
 
 export default function Cart() {
   const { cartInfo, clearAllItems, isLoading } = useContext(CartContext);
-
+  useScrollTop();
   if (isLoading) {
     return <CartSkeleton />;
   }

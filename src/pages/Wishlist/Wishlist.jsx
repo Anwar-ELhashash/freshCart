@@ -7,10 +7,11 @@ import { WishlistContext } from "../../context/Wishlist.context";
 import { Link } from "react-router";
 import WishlistSkeleton from "../../components/Skeleton/WishlistSkeleton";
 import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
+import useScrollTop from "../../hooks/useScroll";
 
 export default function Wishlist() {
   const { wishlist, isLoading, clearWishlist } = useContext(WishlistContext);
-
+  useScrollTop();
   if (isLoading || !wishlist) {
     return <WishlistSkeleton />;
   }

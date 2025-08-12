@@ -6,11 +6,12 @@ import * as yup from "yup";
 import { forgotPassword } from "../../services/auth-service";
 import toast from "react-hot-toast";
 import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
+import useScrollTop from "../../hooks/useScroll";
 
 export default function ForgotPassword() {
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const navigate = useNavigate();
-
+  useScrollTop();
   async function handelForgotPassword({ email }) {
     const loading = toast.loading("Loading...");
     try {

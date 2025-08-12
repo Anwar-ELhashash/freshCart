@@ -6,7 +6,8 @@ import { CartContext } from "../../context/Cart.context";
 import { WishlistContext } from "../../context/Wishlist.context";
 
 export default function WishlistItem({ productInfo }) {
-  const { id, title, imageCover, ratingsAverage, price, quantity, category } = productInfo;
+  const { id, title, imageCover, ratingsAverage, price, quantity, category, priceAfterDiscount } =
+    productInfo;
   const { handelAddProductToCart } = useContext(CartContext);
   const { handelRemoveItemFromWishlist } = useContext(WishlistContext);
   return (
@@ -29,7 +30,9 @@ export default function WishlistItem({ productInfo }) {
                 {ratingsAverage} ({quantity})
               </span>
             </div>
-            <span className="text-xl font-bold text-primary-600">{price} EGP</span>
+            <span className="text-xl font-bold text-primary-600">
+              {priceAfterDiscount ? priceAfterDiscount : price} EGP
+            </span>
           </div>
         </div>
         {/* left */}

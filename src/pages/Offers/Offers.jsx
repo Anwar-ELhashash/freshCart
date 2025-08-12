@@ -3,10 +3,11 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 import useProducts from "../../hooks/useProducts";
 import OffersSkeleton from "../../components/Skeleton/OffersSkeleton";
 import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
+import useScrollTop from "../../hooks/useScroll";
 
 export default function Offers() {
   const { products, isLoading } = useProducts();
-
+  useScrollTop();
   if (isLoading || !products) {
     return <OffersSkeleton />;
   }

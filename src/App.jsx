@@ -89,26 +89,50 @@ const routes = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
+      {
+        path: "/login",
+        element: (
+          <GuardRoute>
+            <Login />
+          </GuardRoute>
+        ),
+      },
+      {
+        path: "/signup",
+        element: (
+          <GuardRoute>
+            <Signup />
+          </GuardRoute>
+        ),
+      },
+      {
+        path: "/verifyEmail",
+        element: (
+          <GuardRoute>
+            <VerifyEmail />
+          </GuardRoute>
+        ),
+      },
+      {
+        path: "/forgotPassword",
+        element: (
+          <GuardRoute>
+            <ForgotPassword />
+          </GuardRoute>
+        ),
+      },
+      {
+        path: "/resetPassword",
+        element: (
+          <GuardRoute>
+            <ResetPassword />
+          </GuardRoute>
+        ),
+      },
     ],
   },
 
   { path: "*", element: <NotFound /> },
-
-  {
-    path: "",
-    element: (
-      <GuardRoute>
-        <Layout />
-      </GuardRoute>
-    ),
-    children: [
-      { path: "/login", element: <Login /> },
-      { path: "/signup", element: <Signup /> },
-      { path: "/verifyEmail", element: <VerifyEmail /> },
-      { path: "/forgotPassword", element: <ForgotPassword /> },
-      { path: "/resetPassword", element: <ResetPassword /> },
-    ],
-  },
 ]);
 
 function App() {

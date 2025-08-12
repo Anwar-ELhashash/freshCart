@@ -6,6 +6,7 @@ import { resetPassword } from "../../services/auth-service";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router";
 import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
+import useScrollTop from "../../hooks/useScroll";
 
 export default function ResetPassword() {
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -29,7 +30,7 @@ export default function ResetPassword() {
       toast.dismiss(loading);
     }
   }
-
+  useScrollTop();
   const schema = yup.object({
     email: yup.string().required("Email is required").matches(emailRegex, "invalid email"),
     newPassword: yup

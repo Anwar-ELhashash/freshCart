@@ -4,6 +4,7 @@ import { getBrands } from "../../services/brands-service";
 import { useEffect, useState } from "react";
 import BrandsSkeleton from "../../components/Skeleton/BrandsSkeleton";
 import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
+import useScrollTop from "../../hooks/useScroll";
 
 export default function Brands() {
   const [brands, setBrands] = useState(null);
@@ -26,6 +27,8 @@ export default function Brands() {
   useEffect(() => {
     handelGetBrands();
   }, []);
+
+  useScrollTop();
 
   return (
     <>

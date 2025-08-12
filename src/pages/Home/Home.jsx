@@ -4,8 +4,10 @@ import HomeDeals from "../../components/HomeComponents/HomeDeals/HomeDeals";
 import HomeFeatures from "../../components/HomeComponents/HomeFeatures/HomeFeatures";
 import HomeSlider from "../../components/HomeComponents/HomeSlider/HomeSlider";
 import PageMetaData from "../../components/PageMetaData.jsx/PageMetaData";
+import useScrollTop from "../../hooks/useScroll";
 
 export default function Home() {
+  useScrollTop();
   return (
     <>
       <PageMetaData title="FreshCart" />
